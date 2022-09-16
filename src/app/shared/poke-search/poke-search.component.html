@@ -1,4 +1,4 @@
-<form>
-  <input type="" placeholder="Buscar Pokemon...">
+<form action="submit" [formGroup]="cadastroForm">
+  <input type="text" formControlName="searchPokemon" placeholder="Buscar Pokemon..." (keyup)="search()">
   <img src="../../../assets/lupa.svg" alt="Ícone de busca">
 </form>

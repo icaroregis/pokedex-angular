@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'poke-search',
@@ -6,7 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./poke-search.component.scss'],
 })
 export class PokeSearchComponent implements OnInit {
-  constructor() {}
+  @Output() public emmitSearch: EventEmitter<string> = new EventEmitter();
+
+  public cadastroForm: FormGroup = this.fb.group({
+    searchPokemon: [''],
+  });
+
+  constructor(private fb: FormBuilder) {}
 
   ngOnInit(): void {}
+
+  public search() {
+    const value = this.cadastroForm.get('searchPokemon')?.value;
+    this.emmitSearch.emit(value);
+  }
 }
