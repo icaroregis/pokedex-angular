@@ -12,6 +12,11 @@ $padding: rem-calc(20);
     flex-wrap: wrap;
     gap: rem-calc(10);
 
+    @media (max-width: 634px) {
+      justify-content: center;
+      align-items: center;
+    }
+
     .pokemon {
       position: relative;
       display: flex;
@@ -22,6 +27,15 @@ $padding: rem-calc(20);
       border-radius: rem-calc(10);
       text-decoration: none;
       color: var(--primary-color);
+
+      @media (max-width: 620px) {
+        width: rem-calc(220);
+        padding: 0 rem-cal(20);
+      }
+
+      @media (max-width: 566) {
+        padding: 0;
+      }
 
       &-status {
         h2 {
